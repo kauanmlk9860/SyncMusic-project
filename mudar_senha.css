@@ -1,0 +1,90 @@
+body {
+    background-color: #d28fff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  header {
+    background-color: #2d0052;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    height: 60px;
+    margin-right: 10px;
+  }
+  
+  .nome-logo {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .voltar {
+    display: inline-block;
+    margin: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  main {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Agora a label é independente e o input é visível */
+  label {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    background-color: #2d0052;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    width: 300px;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  input::placeholder {
+    color: #cccccc;
+  }
+  
+  button {
+    background-color: #7f00ff;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #5d00c9;
+  }
+  
