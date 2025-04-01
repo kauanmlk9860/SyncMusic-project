@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync Music - Login</title>
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="../../css/login.css">
+</head>
+<body>
+    <div class="loader"></div>
+
+    <header>
+        <img src="img/logo.png" alt="Sync Music Logo" class="logo">
+        <span class="title">Sync Music</span>
+    </header>
+    
+    <a href="index.html" class="back">&lt; voltar</a>
+
+    <div class="container">
+        <div class="login-box">
+            <h1>Login</h1>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">E-MAIL</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">SENHA</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+
+                <div id="error-message" class="error-message"></div>
+
+                <button type="submit" class="continue">Continuar</button>
+            </form>
+            
+            <a href="mudar_senha.html" class="esqueci-senha">Esqueceu a senha?</a>
+
+            <div class="social-login">
+                <p>Ou continue com:</p>
+                <div class="social-icons">
+                    <button type="button" class="social-btn">
+                        <img src="img/spotify.png" alt="Spotify">
+                    </button>
+                    <button type="button" class="social-btn">
+                        <img src="img/google.png" alt="Google">
+                    </button>
+                    <button type="button" class="social-btn">
+                        <img src="img/apple.png" alt="Apple">
+                    </button>
+                </div>
+            </div>
+            
+            <div class="register-link">
+                Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
