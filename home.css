@@ -1,0 +1,181 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #E9D4FF;
+    color: #333;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 250px;
+    background-color: #D4B3F8;
+    padding: 25px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    cursor: pointer;
+    color: #333;
+    font-size: 16px;
+    margin: 5px 0;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.menu-item.active {
+    color: #000000;
+    font-weight: bold;
+    background-color: #D4B3F8;
+}
+
+.menu-item:hover {
+    color: #ff0000;
+    background-color: #025201;
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Conteúdo principal */
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.promo-banner {
+    background-color: #A78BFA;
+    color: rgb(255, 255, 255);
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.promo-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.try-button {
+    background-color: #8633E0;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.try-button:hover {
+    transform: scale(1.05);
+}
+
+.album-header {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.album-cover {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin-right: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.album-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.comments-section {
+    background-color: #A78BFA;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.comment {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #a600ff;
+}
+
+.comment:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.user {
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.text {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
