@@ -42,7 +42,7 @@ document.getElementById('formCadastro').addEventListener('submit', function(e) {
     // Se tudo estiver válido
     alert('Cadastro realizado com sucesso! Redirecionando...');
     setTimeout(() => {
-        window.location.href = 'perfil.html';
+        window.location.href = 'login.html';
     }, 1500);
 });
 

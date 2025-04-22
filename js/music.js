@@ -1,13 +1,5 @@
 // Remove o spinner quando a página terminar de carregar
-window.addEventListener('load', function() {
-    const loader = document.querySelector('.loader');
-    if (loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.remove();
-        }, 500); 
-    }
-});
+
 
 // Configura os eventos quando o DOM estiver pronto
 document.addEventListener("DOMContentLoaded", function () {
@@ -30,4 +22,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".planos").addEventListener("click", function () {
         window.location.href = "planos.html";
     });
-});
+}); 
