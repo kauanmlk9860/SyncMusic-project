@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <img src="../img/imagem_2025-02-25_094019139-removebg-preview-removebg-preview.png" alt="Logo SyncMusic" class="logo">
+    <img src="../img/logo.png" alt="Logo SyncMusic" class="logo">
     <span class="nome-logo">Sync Music</span>
   </header>
 
@@ -17,9 +17,14 @@
   <main>
     <h1>Mudar Senha</h1>
 
+    <!-- Formulário de recuperação de senha -->
     <form id="senha-form">
       <label for="email">Digite seu email:</label>
       <input type="email" id="email" required placeholder="email@exemplo.com"/>
+      
+      <!-- Div para mensagens de erro -->
+      <div id="error-message" style="color: red; display: none;"></div>
+      
       <button type="submit">Enviar</button>
     </form>
   </main>

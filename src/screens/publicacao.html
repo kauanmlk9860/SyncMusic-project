@@ -1,87 +1,76 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sync Music</title>
-    <link rel="stylesheet" href="../../css/publicacao.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sync Music</title>
+  <link rel="stylesheet" href="../../css/publicacao.css" />
 </head>
 <body>
-    <div class="app-container">
-        <!-- Barra lateral -->
-        <div class="sidebar">
-            <div class="logo-container">
-                <img src="images/logo.png" alt="Sync Music Logo" class="logo-img">
-                <h1 class="logo-text">Sync Music</h1>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo-container">
+        <img src="../../src/img/logo.png" alt="Logo" class="logo-img" />
+        <span class="logo-text">Sync Music</span>
+      </div>
+      <nav>
+        <a class="menu-item active" href="publicacao.html"><span>🏠</span> Início</a>
+        <a class="menu-item" href="#"><span>🧭</span> Explorar</a>
+        <a class="menu-item" href="#"><span>💬</span> Mensagens</a>
+        <a class="menu-item" href="perfil.html"><span>👤</span> Perfil</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <!-- Stories com setas -->
+      <section class="stories-wrapper">
+        <button class="arrow left" id="prevStory">&#10094;</button>
+        <div class="stories-container" id="storiesContainer">
+          <div class="story">
+            <div class="story-avatar">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Alice">
             </div>
-            <div class="menu-item active">
-                <img src="icons/home.png" alt="Início" class="menu-icon">
-                <span>Início</span>
+            <div class="story-name">alice</div>
+          </div>
+          <div class="story">
+            <div class="story-avatar">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Bob">
             </div>
-            <div class="menu-item">
-                <img src="icons/explore.png" alt="Explorar" class="menu-icon">
-                <span>Explorar</span>
+            <div class="story-name">bob</div>
+          </div>
+          <div class="story">
+            <div class="story-avatar">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Carol">
             </div>
-            <div class="menu-item">
-                <img src="icons/favorites.png" alt="Favoritos" class="menu-icon">
-                <span>Favoritos</span>
+            <div class="story-name">carol</div>
+          </div>
+          <div class="story">
+            <div class="story-avatar">
+              <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="David">
             </div>
+            <div class="story-name">david</div>
+          </div>
+          <div class="story">
+            <div class="story-avatar">
+              <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Eva">
+            </div>
+            <div class="story-name">eva</div>
+          </div>
+          <div class="story">
+            <div class="story-avatar">
+              <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Leo">
+            </div>
+            <div class="story-name">leo</div>
+          </div>
         </div>
-        
+        <button class="arrow right" id="nextStory">&#10095;</button>
+      </section>
 
-        <!-- Conteúdo principal -->
-        <div class="main-content">
-            <!-- Banner promocional -->
-            <div class="promo-banner">
-                <div class="promo-text">Converse com seus artistas favoritos</div>
-                <button class="try-button">Experimente</button>
-            </div>
+      <!-- Feed -->
+      <section id="feed"></section>
+    </main>
+  </div>
 
-            <!-- Capa do álbum -->
-            <div class="album-header">
-                <img src="" alt="Travis Scoot Astroworld" class="album-cover">
-                <h2 class="album-title">Travis Scoot Astroworld</h2>
-            </div>
-
-            <!-- Seção de comentários -->
-            <div class="comments-section">
-                <h3 class="section-title">Comentários</h3>
-                
-                <div class="comment">
-                    <img src="avatars/kendrick.jpg" alt="@kendrick_Jamor" class="user-avatar">
-                    <div class="comment-content">
-                        <div class="user">@kendrick_Jamor</div>
-                        <div class="text">great album</div>
-                    </div>
-                </div>
-                
-                <div class="comment">
-                    <img src="avatars/champagnepapi.jpg" alt="@champagnepapi" class="user-avatar">
-                    <div class="comment-content">
-                        <div class="user">@champagnepapi</div>
-                        <div class="text">It was an honor to participate in this project</div>
-                    </div>
-                </div>
-                
-                <div class="comment">
-                    <img src="avatars/ekonardo.jpg" alt="ekonardo_lima" class="user-avatar">
-                    <div class="comment-content">
-                        <div class="user">ekonardo_lima</div>
-                        <div class="text">Que album maus amigos!!</div>
-                    </div>
-                </div>
-                
-                <div class="comment">
-                    <img src="avatars/ekevin.jpg" alt="ekevin_durant" class="user-avatar">
-                    <div class="comment-content">
-                        <div class="user">ekevin_durant</div>
-                        <div class="text">This is a good album to play basketball!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="../../js/publicacao.js"></script>
+  <script src="../../js/publicacao.js"></script>
 </body>
 </html>

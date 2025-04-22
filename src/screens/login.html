@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sync Music - Login</title>
-   
-    <link rel="stylesheet" href="../../css/login.css" /> 
+    <link rel="stylesheet" href="../../css/login.css" />
+    <!-- Adicione isso para melhorar o carregamento do JavaScript -->
+    <link rel="preload" href="../../js/login.js" as="script">
 </head> 
 <body>
-   
-
     <header>
         <img src="../img/logo.png" alt="Sync Music Logo" class="logo">
         <span class="title">Sync Music</span>
@@ -23,17 +22,20 @@
             <form id="login-form">
                 <div class="form-group">
                     <label for="email">E-MAIL</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" required autocomplete="username">
                 </div>
 
                 <div class="form-group">
                     <label for="senha">SENHA</label>
-                    <input type="password" id="senha" name="senha" required>
+                    <input type="password" id="senha" name="senha" required autocomplete="current-password">
                 </div>
 
-                <div id="error-message" class="error-message"></div>
+                <div id="error-message" class="error-message" aria-live="polite"></div>
 
-                <button type="submit" class="continue">Continuar</button>
+                <button type="submit" class="continue" id="submit-button">
+                    <span class="button-text">Continuar</span>
+                    <span class="loading-spinner" hidden>Carregando...</span>
+                </button>
             </form>
             
             <a href="mudar_senha.html" class="esqueci-senha">Esqueceu a senha?</a>
@@ -41,14 +43,14 @@
             <div class="social-login">
                 <p>Ou continue com:</p>
                 <div class="social-icons">
-                    <button type="button" class="social-btn">
-                        <img src="img/spotify.png" alt="Spotify">
+                    <button type="button" class="social-btn" aria-label="Login com Spotify">
+                        <img src="../img/spotify.png" alt="Spotify" loading="lazy">
                     </button>
-                    <button type="button" class="social-btn">
-                        <img src="img/google.png" alt="Google">
+                    <button type="button" class="social-btn" aria-label="Login com Google">
+                        <img src="../img/google.png" alt="Google" loading="lazy">
                     </button>
-                    <button type="button" class="social-btn">
-                        <img src="img/apple.png" alt="Apple">
+                    <button type="button" class="social-btn" aria-label="Login com Apple">
+                        <img src="../img/apple.png" alt="Apple" loading="lazy">
                     </button>
                 </div>
             </div>
@@ -59,5 +61,7 @@
         </div>
     </div>
 
+    <!-- Script no final do body para melhor performance -->
+    <script src="../../js/login.js" defer></script>
 </body>
 </html>

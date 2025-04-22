@@ -1,148 +1,201 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #ffe6ff;
-}
-
-.container {
+    font-family: 'Arial', sans-serif;
+    background-color: #fceaff;
+    color: #333;
+  }
+  
+  /* Layout geral */
+  .container {
     display: flex;
     height: 100vh;
-}
-
-.sidebar {
+  }
+  
+  /* Sidebar */
+  .sidebar {
     width: 250px;
-    background-color: #f5aafc;
-    padding: 20px;
+    background-color: #d9a8f9;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.sidebar h2 {
-    margin-top: 0;
-}
-
-.sidebar ul {
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  }
+  .sidebar a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .sidebar h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #c800ff;
+  }
+  
+  .sidebar ul {
     list-style: none;
     padding: 0;
-}
-
-.sidebar li {
-    margin: 20px 0;
-    font-size: 20px; 
+  }
+  
+  .sidebar li {
+    margin: 15px 0;
+    font-size: 18px;
     font-weight: bold;
     display: flex;
     align-items: center;
-}
-
-.sidebar li span {
-    font-size: 40px; 
-    margin-right: 10px;
-}
-
-.artista-box {
-    background-color: #d98aff;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.artista-box button {
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar li:hover {
+    color: #c800ff;
+  }
+  
+  .sidebar li span {
+    font-size: 28px;
+    margin-right: 12px;
+  }
+  
+  /* Artista destaque */
+  .artista-box {
     background-color: #c800ff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
     color: white;
+  }
+  
+  .artista-box button {
+    background-color: #fff;
+    color: #c800ff;
     border: none;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 10px 18px;
+    margin-top: 15px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-}
-
-.perfil {
+    transition: background 0.3s ease;
+  }
+  
+  .artista-box button:hover {
+    background-color: #f3d1ff;
+  }
+  
+  /* Perfil principal */
+  .perfil {
     flex: 1;
-    padding: 20px;
-}
-
-.barra-pesquisa {
+    padding: 30px;
+    overflow-y: auto;
+  }
+  
+  /* Barra de pesquisa */
+  .barra-pesquisa {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.barra-pesquisa input {
+  }
+  
+  .barra-pesquisa input {
     width: 90%;
-    padding: 10px;
-    border-radius: 20px;
+    padding: 10px 15px;
+    border-radius: 25px;
     border: none;
-    background-color: #d9a8f9;
+    background-color: #f2d8ff;
     font-size: 16px;
-}
-
-.barra-pesquisa button {
+    outline: none;
+  }
+  
+  .barra-pesquisa button {
     background: none;
     border: none;
-    font-size: 20px;
-    color: #800080;
+    font-size: 24px;
+    color: #c800ff;
     cursor: pointer;
-}
-
-.perfil-dados {
+  }
+  
+  /* Dados do perfil */
+  .perfil-dados {
     display: flex;
     align-items: center;
-    margin-top: 20px;
-    border-top: 1px solid #c48efc;
+    margin-top: 30px;
+    border-top: 2px solid #e3b3ff;
     padding-top: 20px;
-}
-
-.perfil-dados img {
+  }
+  
+  .perfil-dados img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-}
-
-.info {
-    margin-left: 20px;
-}
-
-.botoes button {
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info {
+    margin-left: 25px;
+  }
+  
+  .botoes {
+    margin-top: 10px;
+  }
+  
+  .botoes button {
     background-color: #d9a8f9;
     border: none;
-    padding: 8px 12px;
-    margin: 5px;
+    padding: 8px 16px;
+    margin-right: 10px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-}
-
-.comentarios {
-    margin-top: 30px;
-    border-top: 1px solid #c48efc;
-    padding-top: 20px;
-}
-
-.comentarios h4 {
-    background-color: #f5aafc;
+    color: #000;
+    transition: background 0.3s ease;
+  }
+  
+  .botoes button:hover {
+    background-color: #c800ff;
+    color: white;
+  }
+  
+  /* Comentários */
+  .comentarios {
+    margin-top: 40px;
+    border-top: 2px solid #e3b3ff;
+    padding-top: 25px;
+  }
+  
+  .comentarios h4 {
+    background-color: #f5ccff;
     display: inline-block;
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-.comentario {
-    background-color: #d98aff;
-    margin-top: 10px;
-    padding: 10px;
+    padding: 6px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #c800ff;
+  }
+  
+  .comentario {
+    background-color: #f0cbff;
+    margin-top: 15px;
+    padding: 12px;
     border-radius: 20px;
     display: flex;
     align-items: center;
-}
-
-.comentario img {
-    width: 40px;
-    height: 40px;
+    transition: background 0.3s ease;
+  }
+  
+  .comentario:hover {
+    background-color: #eab6ff;
+  }
+  
+  .comentario img {
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    margin-right: 10px;
-}
-
-.texto p {
+    margin-right: 12px;
+    object-fit: cover;
+  }
+  
+  .texto p {
     margin: 5px 0 0 0;
-}
+    font-size: 14px;
+  }
+  

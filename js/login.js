@@ -1,22 +1,20 @@
 const API_ENDPOINTS = {
-  registerUser: 'https://back-spider.vercel.app/user/cadastrarUser'
+  login: 'https://back-spider.vercel.app/login'
 };
 
-const enviarRegistro = async (firstName, lastName, email, password) => {
-  const url = API_ENDPOINTS.registerUser;
+const fazerLogin = async (email, senha) => {
+  const url = API_ENDPOINTS.login;
   const dados = {
-    nome: `${firstName} ${lastName}`,
     email,
-    senha: password,
-    premium: "1",
-    imagemPerfil: "https://assets.propmark.com.br/uploads/2022/02/WhatsApp-Image-2022-02-18-at-08.52.06.jpeg"
+    senha
   };
 
-  const spinner = document.getElementById("spinner");
-  const status = document.getElementById("status");
+  const errorElement = document.getElementById("error-message");
+  const submitButton = document.querySelector(".continue");
+  const originalButtonText = submitButton.textContent;
 
-  spinner.style.display = "block";
-  status.textContent = "Enviando dados...";
+  submitButton.disabled = true;
+  submitButton.textContent = "Autenticando...";
 
   try {
     const resposta = await fetch(url, {
@@ -26,37 +24,37 @@ const enviarRegistro = async (firstName, lastName, email, password) => {
     });
 
     const resultado = await resposta.json();
+    console.log("Resposta da API:", resultado); // Para debug
 
     if (!resposta.ok || !resultado.success) {
-      throw new Error(resultado.message || "Erro ao registrar");
+      throw new Error(resultado.message || "Credenciais inválidas");
     }
 
-    status.textContent = "Cadastro realizado com sucesso! Redirecionando...";
-    setTimeout(() => {
-      window.location.href = "perfil.html";
-    }, 2000);
+    // Armazena os dados do usuário
+    localStorage.setItem("userToken", resultado.token || "dummy-token-for-test");
+    localStorage.setItem("userEmail", email);
+
+    // Debug: Verifica se armazenou corretamente
+    console.log("Token armazenado:", localStorage.getItem("userToken"));
+    
+    // Força o redirecionamento mesmo se houver problemas
+    window.location.href = "perfil.html";
+    return; // Garante que o código para aqui
+
   } catch (erro) {
-    console.error("Erro ao enviar dados:", erro);
-    status.textContent = "Erro ao registrar. Tente novamente.";
+    console.error("Erro completo:", erro);
+    errorElement.textContent = erro.message || "Erro ao fazer login. Tente novamente.";
+    errorElement.style.display = "block";
   } finally {
-    spinner.style.display = "none";
+    submitButton.disabled = false;
+    submitButton.textContent = originalButtonText;
   }
 };
 
-// Listener para o envio do formulário
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("cadastro-form");
-
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const firstName = document.getElementById("firstName").value.trim();
-      const lastName = document.getElementById("lastName").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
-
-      enviarRegistro(firstName, lastName, email, password);
-    });
-  }
+// Listener para o formulário
+document.getElementById("login-form")?.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const email = document.getElementById("email").value.trim();
+  const senha = document.getElementById("senha").value.trim();
+  fazerLogin(email, senha);
 });
