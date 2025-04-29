@@ -2,25 +2,13 @@ const API_ENDPOINTS = {
     register: 'https://back-spider.vercel.app/user/cadastrarUser'
 };
 
-// Remove o spinner quando a página terminar de carregar
 window.addEventListener('load', function () {
     const loader = document.querySelector('.loader');
     if (loader) {
         loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.remove();
-        }, 500);
+        setTimeout(() => loader.remove(), 500);
     }
 });
-
-// Função para formatar CPF
-function formatarCPF(cpf) {
-    cpf = cpf.replace(/\D/g, ''); // Remove tudo que não for número
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona ponto após os 3 primeiros dígitos
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona ponto após os 3 seguintes
-    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Adiciona o hífen antes dos dois últimos dígitos
-    return cpf;
-}
 
 // Função para enviar cadastro para a API
 async function enviarCadastro(dados) {
@@ -46,37 +34,17 @@ async function enviarCadastro(dados) {
     }
 }
 
-// Validação do formulário
 document.getElementById('formCadastro')?.addEventListener('submit', async function (e) {
     e.preventDefault();
-    
-    // Elementos da UI
+
     const submitBtn = document.querySelector('#formCadastro button[type="submit"]');
     const originalBtnText = submitBtn.textContent;
     const errorMsg = document.getElementById('error-message');
-    
-    // Validação básica
+
     const nome = document.getElementById('nome').value.trim();
-    const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
-    const contato = document.getElementById('contato').value.trim();
+    const email = document.getElementById('contato').value.trim();
     const senha = document.getElementById('senha').value.trim();
     const termos = document.getElementById('termos').checked;
-    
-    // Validações
-    if (!nome || !cpf || !contato || !senha || !termos) {
-        showError('Por favor, preencha todos os campos e aceite os termos.');
-        return;
-    }
-    
-    if (senha.length < 6) {
-        showError('A senha deve ter pelo menos 6 caracteres.');
-        return;
-    }
-
-    if (cpf.length !== 11) {
-        showError('CPF inválido. Deve conter 11 dígitos.');
-        return;
-    }
 
     function showError(message) {
         if (errorMsg) {
@@ -87,27 +55,33 @@ document.getElementById('formCadastro')?.addEventListener('submit', async functi
         }
     }
 
-    // Configuração do botão durante o processamento
+    if (!nome || !email || !senha || !termos) {
+        showError('Por favor, preencha todos os campos e aceite os termos.');
+        return;
+    }
+
+    if (senha.length < 6) {
+        showError('A senha deve ter pelo menos 6 caracteres.');
+        return;
+    }
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Cadastrando...';
     if (errorMsg) errorMsg.style.display = 'none';
 
     try {
-        // Dados para a API
         const dadosCadastro = {
             nome,
-            cpf,
-            contato,
+            email,
             senha,
-            premium: "1",  // Valor padrão conforme endpoint
-            imagemPerfil: "https://assets.propmark.com.br/uploads/2022/02/WhatsApp-Image-2022-02-18-at-08.52.06.jpeg"  // Valor padrão
+            premium: "1",
+            imagemPerfil: "https://assets.propmark.com.br/uploads/2022/02/WhatsApp-Image-2022-02-18-at-08.52.06.jpeg",
+            senhaRecuperacao: "Gato12"
         };
 
-        // Envia para a API
         const resultado = await enviarCadastro(dadosCadastro);
-        
-        // Sucesso no cadastro
-        if (resultado.success) {
+
+        if (resultado.success || resultado.message === "Usuário cadastrado com sucesso!") {
             alert('Cadastro realizado com sucesso! Redirecionando para login...');
             setTimeout(() => {
                 window.location.href = 'login.html';
@@ -123,16 +97,10 @@ document.getElementById('formCadastro')?.addEventListener('submit', async functi
     }
 });
 
-// Máscara para CPF
-document.getElementById('cpf')?.addEventListener('input', function (e) {
-    e.target.value = formatarCPF(e.target.value);
-});
-
-// Eventos para os botões do header
-document.querySelector('.login')?.addEventListener('click', function () {
+// Eventos de navegação
+document.querySelector('.login')?.addEventListener('click', () => {
     window.location.href = 'login.html';
 });
-
-document.querySelector('.cadastro')?.addEventListener('click', function () {
+document.querySelector('.cadastro')?.addEventListener('click', () => {
     window.location.href = 'cadastro.html';
 });
